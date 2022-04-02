@@ -16,8 +16,8 @@ def start(message):
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-    if message.text == "/start":
-        bot.send_message(message.from_user.id, "Привет, я загадал число от 1 до 100. Угадай его.")
+    if message.text == "игра":
+        bot.send_message(message.from_user.id, "Привет, я загадал число от 1 до 10. Угадай его.")
     else:
         if int(message.text) == chislo:
             bot.send_message(message.from_user.id, "Вы угадали!!!")
