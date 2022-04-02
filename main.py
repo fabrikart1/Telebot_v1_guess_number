@@ -6,7 +6,12 @@ import random
 
 bot = telebot.TeleBot(config.telegram_token)
 
-chislo = random.randint(1, 100)
+chislo = random.randint(1, 10)
+
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, 'Привет, друг!')
 
 
 @bot.message_handler(content_types=['text'])
