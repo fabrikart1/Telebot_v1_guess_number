@@ -9,14 +9,9 @@ bot = telebot.TeleBot(config.telegram_token)
 chislo = random.randint(1, 10)
 
 
-@bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message(message.chat.id, 'Привет, друг!')
-
-
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-    if message.text == "/game" or "игра":
+    if message.text == "/start":
         bot.send_message(message.from_user.id, "Привет, я загадал число от 1 до 10. Угадай его.")
     else:
         if int(message.text) == chislo:
